@@ -1,0 +1,11 @@
+<!-- manage_categories.html -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Category</button>
+</form>
+<ul>
+    {% for category in categories %}
+    <li>{{ category.name }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block title %}Create Report{% endblock %}
+
+{% block content %}
+    <h1>Create a Report</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+
+<!-- Include report_detail content -->
+<h1>{{ report.title }}</h1>
+<p>{{ report.description }}</p>
+<a href="{% url 'update_report' report.pk %}">Update Report</a>
+<a href="{% url 'delete_report' report.pk %}">Delete Report</a>
